@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE quantizer SYSTEM "quantizer.dtd">
+<quantizer level="5">
+  <band num="0" name="gray">
+    <subband num="0"/> 
+    <subband num="1" scale="2"/>    
+  </band>
+</quantizer>

@@ -1,0 +1,13 @@
+<!ELEMENT quantizer (band+)>
+<!ATTLIST quantizer level CDATA "1">
+<!ELEMENT band (subband+)>
+<!ATTLIST band num CDATA #REQUIRED>
+<!ATTLIST band name CDATA #IMPLIED>
+<!ELEMENT subband (#PCDATA)>
+<!ATTLIST subband num CDATA #REQUIRED>
+<!ATTLIST subband width CDATA "1">
+<!ATTLIST subband height CDATA "1">
+<!ATTLIST subband type CDATA "int">
+<!ATTLIST subband shape CDATA "square">
+<!ATTLIST subband scale CDATA "1">
+

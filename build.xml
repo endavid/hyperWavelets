@@ -1,0 +1,53 @@
+<!-- To build this use 'ant' -->
+<project name="HyperProject" default="dist" basedir=".">
+  <!-- set global properties for this build -->
+  <property name="src" value="src"/>
+  <property name="build" value="build"/>
+  <property name="dist"  value="dist"/>  
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+  
+  <target name="compile" depends="init">
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile">
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}"/> 
+
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/HyperProject.jar" basedir="${build}" 
+         manifest="${src}/MANIFEST.MF">
+	<zipfileset dir="resources" prefix="hyper/resources"/>
+	<zipfileset dir="docs/help" prefix="hyper/doc"/>
+    </jar>
+    <tar tarfile="${dist}/hyper-${DSTAMP}.tar" basedir="."
+    	 excludes="${dist}/**,${build}/**,docs/api/**"/>
+    <gzip zipfile="${dist}/hyper-${DSTAMP}.tar.gz" src="${dist}/hyper-${DSTAMP}.tar"/>
+    <delete file="${dist}/hyper-${DSTAMP}.tar"/>
+  </target>
+
+  <target name="clean">
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+  
+  <target name="doc">
+    <mkdir dir="docs"/>
+    <mkdir dir="docs/api"/>
+    
+    <javadoc packagenames="hyper,hyper.dsp,hyper.coding,hyper.io,org.freehep.util.io"
+             sourcepath="src" destdir="docs/api" private="yes">
+	<doctitle><![CDATA[<h1>Hyper Processing API</h1>]]></doctitle>	     
+    </javadoc>	     	     
+  </target>
+
+</project>
+

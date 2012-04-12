@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE quantizer SYSTEM "quantizer.dtd">
+<quantizer level="2">
+  <band num="0" name="Red">
+    <subband num="0"/>
+    <subband num="1" width="2" height="2" scale="4"/>
+    <subband num="2" width="2" height="2" scale="4"/>
+    <subband num="3" width="2" height="2" scale="4"/>
+    <subband num="4" width="4" height="4" scale="16"/>
+    <subband num="5" width="4" height="4" scale="16"/>
+    <subband num="6" width="4" height="4" scale="16"/>
+  </band>
+  <band num="1" name="Green">
+    <subband num="0"/>
+    <subband num="1" width="2" height="2" scale="4"/>
+    <subband num="2" width="2" height="2" scale="4"/>
+    <subband num="3" width="2" height="2" scale="4"/>
+    <subband num="4" width="4" height="4" scale="16"/>
+    <subband num="5" width="4" height="4" scale="16"/>
+    <subband num="6" width="4" height="4" scale="16"/>
+  </band>
+  <!-- la banda del azul es menos importante para nuestro ojo ... -->
+  <band num="2" name="Blue">
+    <subband num="0"/>
+    <subband num="1" width="4" height="2" scale="8"/>
+    <subband num="2" width="2" height="4" scale="8"/>
+    <subband num="3" width="4" height="4" scale="8"/>
+    <subband num="4" width="4" height="4" scale="16"/>
+    <subband num="5" width="4" height="4" scale="16"/>
+    <subband num="6" width="4" height="4" scale="16"/>
+  </band>
+</quantizer>
